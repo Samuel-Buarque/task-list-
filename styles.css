@@ -2,17 +2,19 @@ body {
     font-family: Arial, sans-serif;
     background: linear-gradient(180deg, rgba(126, 1, 126) 0%, rgb(197, 11, 197) 100%);
     display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
     margin: 0;
-    padding: 20px; 
-    overflow: hidden;
-    
+    padding: 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+   
 }
 
 .container {
-    background: linear-gradient(180deg, rgba(255,251,0,1) 0%, rgba(255,177,0,1) 100%);
+    flex: 0 1 auto;  
+    background: linear-gradient(180deg, rgba(255, 251, 0, 1) 0%, rgba(255, 177, 0, 1) 100%);
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -59,7 +61,7 @@ button:hover {
 }
 
 button i {
-    font-size: 15px; 
+    font-size: 15px;
 }
 
 ul {
@@ -89,26 +91,29 @@ li button {
     border: none;
     cursor: pointer;
     color: #fa4a4a;
-    padding: 0; 
+    padding: 0;
 }
 
 li button:hover {
     color: #b81515;
-    background-color: transparent; 
+    background-color: transparent;
 }
 
-footer{
-    position: fixed;
-    padding-top: 47%;
+
+footer {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-top: auto;
 }
 
-footer a{
+footer a {
     margin-right: 9px;
     font-size: 30px;
     color: rgb(0, 0, 0);
-
 }
 
-footer a:hover{
+footer a:hover {
     color: rgb(255, 231, 16);
 }
