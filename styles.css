@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, rgba(126, 1, 126) 0%, rgb(197, 11, 197) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px; 
+    overflow: hidden;
+    
+}
+
+.container {
+    background: linear-gradient(180deg, rgba(255,251,0,1) 0%, rgba(255,177,0,1) 100%);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border-color: rgb(3, 3, 77);
+    border-style: solid;
+    border-width: 4px 4px 14px 4px;
+    min-height: 250px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 33px;
+    color: rgb(3, 3, 77);
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid rgb(3, 3, 77);
+    border-radius: 5px;
+}
+
+button {
+    margin-left: 5px;
+    padding: 3px 15px;
+    border: none;
+    background-color: rgb(3, 3, 77);
+    color: rgb(255, 255, 255);
+    border-radius: 170%;
+    cursor: pointer;
+    position: relative;
+}
+
+button:hover {
+    background-color: rgb(2, 2, 168);
+}
+
+button i {
+    font-size: 15px; 
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid rgb(3, 3, 77);
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+li button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fa4a4a;
+    padding: 0; 
+}
+
+li button:hover {
+    color: #b81515;
+    background-color: transparent; 
+}
+
+footer{
+    position: fixed;
+    padding-top: 47%;
+}
+
+footer a{
+    margin-right: 9px;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+
+}
+
+footer a:hover{
+    color: rgb(255, 231, 16);
+}
