@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('task-form');
     const taskInput = document.getElementById('task-input');
-    const taskList = document.getElementById('task-list');
+    const appContainer = document.getElementById('app');
+    let taskList = createTaskList(); // Cria a lista de tarefas logo ao carregar a página
 
-    // Carregar tarefas do Local Storage
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     savedTasks.forEach(task => {
         addTaskToDOM(task);
     });
 
-    // Adicionar nova tarefa
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const taskText = taskInput.value.trim();
@@ -26,14 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Função para adicionar tarefa ao DOM
+    function createTaskList() {
+        const ul = document.createElement('ul');
+        ul.id = 'task-list';
+        appContainer.appendChild(ul);
+        return ul;
+    }
+
     function addTaskToDOM(task) {
         const li = document.createElement('li');
-        li.textContent = task.text;
+        const span = document.createElement('span');
+        span.textContent = task.text;
+        li.appendChild(span);
 
-        if (task.completed) {
-            li.classList.add('completed');
-        }
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
 
         const toggleButton = document.createElement('button');
         toggleButton.innerHTML = '<i class="fa fa-check"></i>';
@@ -42,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             li.classList.toggle('completed');
             saveTasksToLocalStorage();
         });
+        buttonsContainer.appendChild(toggleButton);
 
         const deleteButton = document.createElement('button');
         deleteButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
@@ -49,19 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteTask(task);
             li.remove();
         });
+        buttonsContainer.appendChild(deleteButton);
 
-        li.appendChild(toggleButton);
-        li.appendChild(deleteButton);
+        li.appendChild(buttonsContainer);
         taskList.appendChild(li);
+
+        if (task.completed) {
+            li.classList.add('completed');
+        }
     }
 
-    // Função para salvar tarefas no Local Storage
     function saveTask(task) {
         savedTasks.push(task);
         saveTasksToLocalStorage();
     }
 
-    // Função para excluir tarefa
     function deleteTask(taskToDelete) {
         const index = savedTasks.findIndex(task => task.text === taskToDelete.text);
         if (index !== -1) {
@@ -70,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Função para salvar tarefas atualizadas no Local Storage
     function saveTasksToLocalStorage() {
         localStorage.setItem('tasks', JSON.stringify(savedTasks));
     }
